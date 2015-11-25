@@ -9,7 +9,7 @@ import ru.dmartynov.reporter.models.Category;
 import java.lang.reflect.Field;
 
 /**
- * Приводит в пригодный для отображения в таблицы вид enum типа Category
+ * Приводит в пригодный для отображения в таблице вид enum типа Category
  * @param <T> родительский тип
  */
 public class CategoryPropertyValueFactory<T> extends PropertyValueFactory<T, String> {

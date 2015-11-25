@@ -7,13 +7,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ru.dmartynov.reporter.controllers.MainController">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.dmartynov.reporter.controllers.MainController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
         <Menu mnemonicParsing="false" text="Файл">
           <items>
-            <MenuItem mnemonicParsing="false" text="Выход" fx:id="exitMenuItem" />
+            <MenuItem fx:id="exitMenuItem" mnemonicParsing="false" text="Выход" />
           </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Инструменты">
@@ -35,8 +35,8 @@
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
               <children>
                 <Accordion minWidth="125.0" prefHeight="374.0" prefWidth="125.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                  <expandedPane>
-                    <TitledPane fx:id="x1" animated="false" text="Справочники">
+                  <panes>
+                    <TitledPane animated="false" text="Справочники" fx:id="x1">
                       <content>
                         <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                           <children>
@@ -54,9 +54,6 @@
                         </AnchorPane>
                       </content>
                     </TitledPane>
-                  </expandedPane>
-                  <panes>
-                    <fx:reference source="x1" />
                     <TitledPane animated="false" text="Отчеты">
                       <content>
                         <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
@@ -72,14 +69,14 @@
                   <children>
                     <ToolBar>
                       <items>
-                        <Button mnemonicParsing="false" text="Создать" />
-                        <Button mnemonicParsing="false" text="Редактировать" />
-                        <Button mnemonicParsing="false" text="Удалить" />
+                        <Button fx:id="createButton" mnemonicParsing="false" text="Создать" />
+                        <Button fx:id="editButton" mnemonicParsing="false" text="Редактировать" />
+                        <Button fx:id="deleteButton" mnemonicParsing="false" text="Удалить" />
                       </items>
                     </ToolBar>
                     <AnchorPane fx:id="catalogsPane" prefHeight="-1.0" prefWidth="-1.0">
                       <children>
-                        <TableView fx:id="personsTable" prefHeight="113.0" prefWidth="507.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <TableView fx:id="personsTable" prefHeight="329.0" prefWidth="519.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <columns>
                             <TableColumn prefWidth="75.0" text="ФИО" />
                             <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="75.0" text="Тип заявителя" />

@@ -2,6 +2,7 @@ package ru.dmartynov.reporter.utils;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.util.Callback;
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -24,11 +25,16 @@ public class ViewFactoryBean implements FactoryBean<View> {
     @Override
     public View getObject() throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource(viewFile));
+        loader.setControllerFactory(new Callback<Class<?>, Object>() {
+            @Override
+            public Object call(Class<?> aClass) {
+                return context.getBean(aClass);
+            }
+        });
         loader.load(getClass().getClassLoader().getResourceAsStream(viewFile));
         AbstractController controller = loader.getController();
-        context.getAutowireCapableBeanFactory().autowireBean(controller);
         controller.init();
-        return new View((Parent) loader.getRoot(), controller);
+        return new View<AbstractController>((Parent) loader.getRoot(), controller);
     }
 
     @Override
@@ -38,6 +44,6 @@ public class ViewFactoryBean implements FactoryBean<View> {
 
     @Override
     public boolean isSingleton() {
-        return false;
+        return true;
     }
 }

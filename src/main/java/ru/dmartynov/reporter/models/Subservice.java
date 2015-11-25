@@ -1,9 +1,12 @@
 package ru.dmartynov.reporter.models;
 
+import org.springframework.data.annotation.Id;
+
 /**
  * Created by d.martynov on 23.11.2015.
  */
 public class Subservice {
+    @Id
     private Long targetCode;
     private String name;
 

@@ -1,11 +1,19 @@
 package ru.dmartynov.reporter.models;
 
+import org.springframework.data.annotation.Id;
+
 /**
  * Created by d.martynov on 23.11.2015.
  */
 public class Person {
+    @Id
     private String fullName;
     private Category category;
+
+    public Person(String fullName, Category category) {
+        this.fullName = fullName;
+        this.category = category;
+    }
 
     public Person() {
     }

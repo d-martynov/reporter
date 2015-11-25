@@ -1,6 +1,6 @@
 package ru.dmartynov.reporter.controllers;
 
-import javafx.fxml.FXML;
+import javax.annotation.PostConstruct;
 
 /**
  * Created by Дмитрий on 24.11.2015.

@@ -1,11 +1,14 @@
 package ru.dmartynov.reporter.models;
 
+import org.springframework.data.annotation.Id;
+
 import java.util.List;
 
 /**
  * Created by d.martynov on 23.11.2015.
  */
 public class Service {
+    @Id
     private Long targetCode;
     private Long formCode;
     private Category category;

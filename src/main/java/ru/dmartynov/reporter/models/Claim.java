@@ -1,5 +1,7 @@
 package ru.dmartynov.reporter.models;
 
+import org.springframework.data.annotation.Id;
+
 import java.util.Date;
 
 /**
@@ -8,6 +10,7 @@ import java.util.Date;
 public class Claim {
     private Long requestId;
     private Long serviceId;
+    @Id
     private Long claimId;
     private Date creationDate;
     private String status;

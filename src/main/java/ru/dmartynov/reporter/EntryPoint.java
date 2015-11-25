@@ -14,9 +14,11 @@ import ru.dmartynov.reporter.controllers.MainController;
 public class EntryPoint extends AbstractJavaFxSpringApplication {
     @Autowired
     private View<MainController> mainView;
+    private Stage stage;
 
     @Override
     public void start(Stage stage) throws Exception {
+        this.stage = stage;
         stage.setScene(new Scene(mainView.getParent()));
         stage.centerOnScreen();
         stage.show();
@@ -24,5 +26,9 @@ public class EntryPoint extends AbstractJavaFxSpringApplication {
 
     public static void main(String[] args) throws Exception {
         launchApp(EntryPoint.class, args);
+    }
+
+    public Stage getStage() {
+        return stage;
     }
 }
